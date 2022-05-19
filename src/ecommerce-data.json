@@ -1,0 +1,97 @@
+{
+  "users": [
+    { "id": 0, "name": "Paul Leandro", "isCustomer": true },
+    { "id": 1, "name": "Paul Leandro", "isCustomer": true },
+    { "id": 2, "name": "Paul Leandro", "isCustomer": true },
+    { "id": 3, "name": "Paul Leandro", "isCustomer": false },
+    { "id": 4, "name": "Paul Leandro", "isCustomer": true }
+  ],
+  "products": [
+    {
+      "id": 0,
+      "product_name": "Apple",
+      "product_price": "",
+      "product_quantity": 35,
+      "sold": 100
+    },
+    {
+      "id": 1,
+      "product_name": "Banana",
+      "product_price": "",
+      "product_quantity": 56,
+      "sold": 55
+    },
+    {
+      "id": 2,
+      "product_name": "Orange",
+      "product_price": "",
+      "product_quantity": 25,
+      "sold": 78
+    },
+    {
+      "id": 3,
+      "product_name": "French Fries",
+      "product_price": "",
+      "product_quantity": 25,
+      "sold": 50
+    }
+  ],
+  "sold_products": [
+    {
+      "id": 0,
+      "product_id": 0,
+      "city": "Paranaque",
+      "date_sold": "Thu April 19 2022 20:51:53",
+      "quantity": 1,
+      "price": 100
+    },
+    {
+      "id": 1,
+      "product_id": 0,
+      "city": "Paranaque",
+      "date_sold": "Thu May 19 2022 20:51:53",
+      "quantity": 10,
+      "price": 100
+    },
+    {
+      "id": 2,
+      "product_id": 3,
+      "city": "Paranaque",
+      "date_sold": "Thu May 19 2022 20:51:53",
+      "quantity": 500,
+      "price": 100
+    },
+    {
+      "id": 3,
+      "product_id": 0,
+      "city": "Paranaque",
+      "date_sold": "Thu May 18 2022 20:51:53",
+      "quantity": 35,
+      "price": 100
+    },
+    {
+      "id": 4,
+      "product_id": 3,
+      "city": "Paranaque",
+      "date_sold": "Thu June 19 2022 20:51:53",
+      "quantity": 42,
+      "price": 100
+    },
+    {
+      "id": 5,
+      "product_id": 0,
+      "city": "Paranaque",
+      "date_sold": "Thu July 19 2022 20:51:53",
+      "quantity": 55,
+      "price": 100
+    },
+    {
+      "id": 6,
+      "product_id": 2,
+      "city": "Paranaque",
+      "date_sold": "Thu August 19 2022 20:51:53",
+      "quantity": 66,
+      "price": 100
+    }
+  ]
+}
