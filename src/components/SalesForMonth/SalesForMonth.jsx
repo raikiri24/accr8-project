@@ -97,39 +97,37 @@ function getFiveMonthsFromNow() {
 
   return fiveMonthBefore;
 }
-export function SalesForMonth() {
-  const [soldProductMonthly, setSoldProduct] = useState([]);
-  const [fiveMonthsBeforeArr, setFiveMonthsBeforeArr] = useState();
-  const [data, setData] = useState({
-    labels: fiveMonthsBeforeArr,
-    datasets: [
-      {
-        label: "Sales for Month",
-        fill: false,
-        lineTension: 0.1,
-        backgroundColor: "rgba(194, 116, 161, 0.5)",
-        borderColor: "rgb(194, 116, 161)",
-        borderCapStyle: "butt",
-        borderDash: [],
-        borderDashOffset: 0.0,
-        borderJoinStyle: "miter",
-        pointBorderColor: "rgba(75,192,192,1)",
-        pointBackgroundColor: "#fff",
-        pointBorderWidth: 1,
-        pointHoverRadius: 5,
-        pointHoverBackgroundColor: "rgba(71, 225, 167, 0.5)",
-        pointHoverBorderColor: "rgb(71, 225, 167)",
-        pointHoverBorderWidth: 2,
-        pointRadius: 1,
-        pointHitRadius: 10,
-        data: [65, 59, 80, 81, 56, 55, 40],
-      },
-    ],
+
+function getSalesForMonth() {
+  const soldProductsMonth = ECommerceData.sold_products.map((sold_product) => {
+    const moneyTaken = sold_product.quantity * sold_product.price;
+    return {
+      months: months[new Date(sold_product.date_sold).getMonth()],
+      moneyTaken: moneyTaken,
+    };
   });
+  const newSoldProductsMonth = [];
+  soldProductsMonth.forEach((soldProductmonth) => {
+    if (
+      Object.values(newSoldProductsMonth).indexOf(soldProductmonth.months) > -1
+    ) {
+      console.log("Hello");
+    } else {
+      newSoldProductsMonth.push(soldProductmonth);
+    }
+  });
+  console.log(newSoldProductsMonth);
+}
+export function SalesForMonth() {
+  getSalesForMonth();
+  const [fiveMonthsBeforeArr, setFiveMonthsBeforeArr] = useState(
+    getFiveMonthsFromNow()
+  );
+  const [data, setData] = useState({ labels: [], datasets: [] });
 
   useEffect(() => {
-    setFiveMonthsBeforeArr(getFiveMonthsFromNow());
     setData({
+      ...data,
       labels: fiveMonthsBeforeArr,
       datasets: [
         {
@@ -156,34 +154,6 @@ export function SalesForMonth() {
       ],
     });
   }, []);
-
-  //FUNCTION FOR SALES FOR MONTH
-  function salesForMonthData() {
-    let soldProductMonthObj = {
-      soldProductMonthArr: [],
-      soldProductQuantityArr: [],
-      monthsAndQuantity: [{ month: "", quantity: 0 }],
-    };
-    ECommerceData.sold_products.map((sold_product) => {
-      soldProductMonthObj["soldProductMonthArr"].push(
-        new Date(sold_product.date_sold).getMonth()
-      );
-    });
-    let newSoldProductMonthArr = switchForDateArray(
-      soldProductMonthObj["soldProductMonthArr"],
-      0
-    );
-
-    newSoldProductMonthArr.forEach((newSoldArr) => {
-      let newSoldObj = { month: newSoldArr, quantity: 0 };
-      if (soldProductMonthObj.monthsAndQuantity.includes(newSoldObj)) {
-        return;
-      } else {
-      }
-    });
-
-    //   console.log(`${soldProductDate}`);
-  }
 
   return (
     <CDBContainer>

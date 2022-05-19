@@ -46,7 +46,7 @@ function App() {
     sort_by_best_sold().map((product) => {
       label_arr.push(product.sold);
     });
-    console.log(label_arr);
+    console.log(EcommerceData.products.quantity);
     return label_arr;
   }
 
