@@ -1,5 +1,5 @@
 import React from "react";
-
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 export function Sidebar() {
   return (
     <aside
@@ -12,18 +12,18 @@ export function Sidebar() {
           aria-hidden="true"
           id="iconSidenav"
         ></i>
-        <a
-          className="navbar-brand m-0"
-          href="https://github.com/raikiri24"
-          target="_blank"
-        >
-          <img
-            src="./assets/img/logos/corn.png"
-            className="navbar-brand-img h-100"
-            alt="main_logo"
-          />
-          <span className="ms-1 font-weight-bold text-white">CornWhRi Co.</span>
-        </a>
+        <Router>
+          <Link to="/" className="navbar-brand m-0">
+            <img
+              src="./assets/img/logos/corn.png"
+              className="navbar-brand-img h-100"
+              alt="main_logo"
+            />
+            <span className="ms-1 font-weight-bold text-white">
+              CornWhRi Co.
+            </span>
+          </Link>
+        </Router>
       </div>
       <hr className="horizontal light mt-0 mb-2" />
       <div
@@ -118,7 +118,7 @@ export function Sidebar() {
             href="https://www.creative-tim.com/product/material-dashboard-pro?ref=sidebarfree"
             type="button"
           >
-            Paul Leandro Lanot
+            --
           </a>
         </div>
       </div>
