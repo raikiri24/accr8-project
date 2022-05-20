@@ -3,13 +3,10 @@ import ECommerceData from "../../ecommerce-data.json";
 import { Bar } from "react-chartjs-2";
 import { CDBContainer } from "cdbreact";
 
-const cityThatSoldItemsObj = ECommerceData.cities.map((sales_per_city) => {
-  return {
-    city: sales_per_city.city,
-    moneyTaken: sales_per_city.sales,
-  };
-});
-
+const cityThatSoldItemsObj = ECommerceData.cities.map((t) => ({
+  city: t.city,
+  moneyTaken: t.sales,
+}));
 export function SalesForTheCity() {
   const [moneyPerCity] = useState(() => {
     let moneyPerCitiesArr = [];
@@ -19,12 +16,14 @@ export function SalesForTheCity() {
     return moneyPerCitiesArr;
   });
 
-  const [cities, setCities] = useState(() => {
-    let citiesArr = [];
-    cityThatSoldItemsObj.map((cityObj) => {
-      citiesArr.push(cityObj.city);
-    });
-    return citiesArr;
+  const [cities] = useState(() => {
+    let t = [];
+    return (
+      cityThatSoldItemsObj.map((e) => {
+        t.push(e.city);
+      }),
+      t
+    );
   });
   const [data, setData] = useState({ labels: [], datasets: [] });
 

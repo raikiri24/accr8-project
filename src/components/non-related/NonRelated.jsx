@@ -1,9 +1,9 @@
 import React from "react";
-import { Visitors } from "../Visitors/Visitors";
+
 export function NonRelated() {
   return (
     <div class="row mt-6 mb-5 non-related">
-      <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4 mt-9">
+      <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
         <div class="card">
           <div class="card-header p-3 pt-2">
             <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
@@ -23,7 +23,7 @@ export function NonRelated() {
           </div>
         </div>
       </div>
-      <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4 mt-9">
+      <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
         <div class="card">
           <div class="card-header p-3 pt-2">
             <div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl mt-n4 position-absolute">
@@ -43,7 +43,7 @@ export function NonRelated() {
           </div>
         </div>
       </div>
-      <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4 mt-9">
+      <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4 ">
         <div class="card">
           <div class="card-header p-3 pt-2">
             <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
