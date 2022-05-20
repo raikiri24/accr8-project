@@ -3,33 +3,32 @@ import ECommerceData from "../../ecommerce-data.json";
 import { Bar } from "react-chartjs-2";
 
 function getSalesForDayObj() {
-  let dayBefore = [];
-  let arr = [];
-  let day = new Date().getDate() + 1;
+  let day = new Date().getDate();
   let date = new Date(new Date().getFullYear(), new Date().getMonth(), day);
-  for (let i = 0; i < 5; i++) {
-    ECommerceData.sold_products.map((sold_product) => {
-      if (date.getTime() === Date.parse(sold_product.date_sold)) {
-        dayBefore.push(sold_product);
-      }
-    });
 
-    date = new Date(new Date().getFullYear(), new Date().getMonth(), day);
-    day -= 1;
-  }
-
-  for (let i = 0; dayBefore.length > i; i++) {
-    if (Object.values(arr).indexOf(Date.parse(dayBefore[i].date_sold)) > -1) {
-      console.log(true);
+  let dayBefore = [];
+  let i = 0;
+  do {
+    if (dayBefore === undefined || dayBefore.length === 0) {
+      dayBefore.push(ECommerceData.sold_products[i]);
+      day -= 1;
     } else {
-      arr.push(dayBefore[i]);
-      console.log();
+      if (
+        new Date(date).getTime() ===
+        new Date(ECommerceData.sold_products[i].date_sold).getTime()
+      ) {
+        dayBefore.push(ECommerceData.sold_products[i]);
+      }
+      day -= 1;
     }
-  }
-  console.log(dayBefore);
+    date = new Date(new Date().getFullYear(), new Date().getMonth(), day);
+
+    i += 1;
+  } while (i < ECommerceData.sold_products.length);
 
   return dayBefore;
 }
+
 //get Five Month from this month
 function getFiveDaysFromNow() {
   const fiveDaysBefore = getSalesForDayObj().map((sales_for_month) => {
@@ -43,21 +42,29 @@ function getFiveDaysFromNow() {
     }
   });
 
-  // console.log(fiveDaysBefore);
   return fiveDaysBefore;
 }
 function getFiveDaysSalesFromNow() {
-  const fiveMonthSalesBefore = getSalesForDayObj().map((sales_for_month) => {
-    return sales_for_month.sales;
-  });
-  fiveMonthSalesBefore.reverse((a, b) => {
-    if (a > b) {
-      return -1;
-    } else {
-      return 1;
+  let sales = [];
+  let day = new Date().getDate();
+  let date = new Date(new Date().getFullYear(), new Date().getMonth(), day);
+
+  let i = 0;
+  do {
+    if (
+      new Date(getSalesForDayObj()[i].date_sold).getTime() ===
+      new Date(ECommerceData.sold_products[i].date_sold).getTime()
+    ) {
+      sales.push(ECommerceData.sold_products[i]);
     }
-  });
-  return fiveMonthSalesBefore;
+    day -= 1;
+
+    date = new Date(new Date().getFullYear(), new Date().getMonth(), day);
+
+    i += 1;
+  } while (i < getSalesForDayObj().length);
+
+  return [];
 }
 
 export function SalesForDay() {
