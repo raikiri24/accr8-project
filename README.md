@@ -26,7 +26,7 @@ Company owning an eCommerce website selling grains such as rice, wheat and corn 
 ### Mobile view
 
 ![Mobile View](Mobile_1.png "Mobile View")
-![Mobile View 2](Mobile_3.png "Mobile View 2")
+![Mobile View 2](Mobile3.png "Mobile View 2")
 ![Mobile View 3](Mobile_4.png "Mobile View 3")
 ![Mobile View 4](Mobile_5.png "Mobile View 4")
 
