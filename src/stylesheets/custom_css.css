@@ -4,7 +4,9 @@
   display: flex;
   flex-wrap: wrap;
 }
-
+h3 {
+  font-family: "Mukta", sans-serif;
+}
 .card-header-graph {
   border-bottom: none;
   box-shadow: -1px 2px 12px rgba(0, 0, 0, 0.3);
@@ -15,4 +17,7 @@
 .nonrelated {
   align-items: center;
   justify-content: center;
+}
+.chart {
+  padding: max(3ch, 1ch);
 }

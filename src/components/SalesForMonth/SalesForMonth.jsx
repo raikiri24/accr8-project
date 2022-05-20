@@ -95,13 +95,11 @@ export function SalesForMonth() {
           </div>
         </div>
         <div class="card-body">
-          <h6 className="mt-5">Sales per Month</h6>
-          <p class="text-sm ">Last Campaign Performance</p>
+          <h3 class="" style={{ textAlign: "center" }}>
+            SALES PER MONTH
+          </h3>
+
           <hr class="dark horizontal" />
-          <div class="d-flex ">
-            <i class="material-icons text-sm my-auto me-1">schedule</i>
-            <p class="mb-0 text-sm">just updated</p>
-          </div>
         </div>
       </div>
     </div>

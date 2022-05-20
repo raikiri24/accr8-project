@@ -12,6 +12,7 @@ import "./stylesheets/custom_css.css";
 import { Sidebar } from "./components/SideBar/Sidebar";
 import { Topbar } from "./components/topbar/Topbar";
 import { NonRelated } from "./components/non-related/NonRelated";
+import { Footer } from "./components/Footer/Footer";
 function App() {
   return (
     <>
@@ -26,14 +27,14 @@ function App() {
           <TopSellingItem />
 
           <SlowMovementItem />
-
-          <SalesForMonth />
+          <Visitors />
         </div>
         <div className="row mt-4">
           <SalesForTheCity />
-
+          <SalesForMonth />
           <SalesForDay />
         </div>
+        <Footer />
       </main>
     </>
   );

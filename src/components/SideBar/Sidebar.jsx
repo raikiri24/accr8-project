@@ -14,17 +14,15 @@ export function Sidebar() {
         ></i>
         <a
           className="navbar-brand m-0"
-          href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard "
+          href="https://github.com/raikiri24"
           target="_blank"
         >
           <img
-            src="./assets/img/logo-ct.png"
+            src="./assets/img/logos/corn.png"
             className="navbar-brand-img h-100"
             alt="main_logo"
           />
-          <span className="ms-1 font-weight-bold text-white">
-            Material Dashboard 2
-          </span>
+          <span className="ms-1 font-weight-bold text-white">CornWhRi Co.</span>
         </a>
       </div>
       <hr className="horizontal light mt-0 mb-2" />
@@ -60,17 +58,7 @@ export function Sidebar() {
               <span className="nav-link-text ms-1">Billing</span>
             </a>
           </li>
-          <li className="nav-item">
-            <a
-              className="nav-link text-white "
-              href="./pages/virtual-reality.html"
-            >
-              <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                <i className="material-icons opacity-10">view_in_ar</i>
-              </div>
-              <span className="nav-link-text ms-1">Virtual Reality</span>
-            </a>
-          </li>
+
           <li className="nav-item">
             <a className="nav-link text-white " href="./pages/rtl.html">
               <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -130,7 +118,7 @@ export function Sidebar() {
             href="https://www.creative-tim.com/product/material-dashboard-pro?ref=sidebarfree"
             type="button"
           >
-            Upgrade to pro
+            Paul Leandro Lanot
           </a>
         </div>
       </div>
