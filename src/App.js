@@ -1,18 +1,21 @@
-import React, { useState } from "react"; //USE STATE
-
-import { Line } from "react-chartjs-2"; // REACTCHARTJS2
-
-import { CDBContainer } from "cdbreact"; //CDBREACT BOOTSTRAP
-
-import { Chart as ChartJS } from "chart.js/auto"; //CHARTJS NEEDED
-
-import { Chart } from "react-chartjs-2"; // CHART
+//USE STATE
+import React, { useState } from "react";
+// REACTCHARTJS2
+import { Line } from "react-chartjs-2";
+//CDBREACT BOOTSTRAP
+import { CDBContainer, CDBBox } from "cdbreact";
+//CHARTJS NEEDED
+import { Chart as ChartJS } from "chart.js/auto";
+// CHART
+import { Chart } from "react-chartjs-2";
 
 import { Visitors } from "./components/Visitors/Visitors";
 
 import { SalesForMonth } from "./components/SalesForMonth/SalesForMonth";
+//JSON FILE
+import EcommerceData from "./ecommerce-data.json";
 
-import EcommerceData from "./ecommerce-data.json"; //JSON FILE
+import { SalesForTheCity } from "./components/SalesForTheCity/SalesForTheCity";
 
 function App() {
   //FUNCTION FOR BEST SALES
@@ -63,13 +66,25 @@ function App() {
     ],
   });
   return (
-    <div>
+    <>
       <CDBContainer>
-        <h3 className="mt-5">TOP SELLING</h3>
-        <Line data={data} options={{ responsive: true }} />
+        <CDBBox display="flex">
+          <CDBBox display="block">
+            <h3 className="mt-5">TOP SELLING</h3>
+            <Line data={data} options={{ responsive: true }} />
+          </CDBBox>
+          <CDBBox display="block">
+            <SalesForMonth />
+          </CDBBox>
+          <CDBBox display="block">
+            <SalesForTheCity />
+          </CDBBox>
+          <CDBBox display="block">
+            <Visitors />
+          </CDBBox>
+        </CDBBox>
       </CDBContainer>
-      <SalesForMonth />
-    </div>
+    </>
   );
 }
 

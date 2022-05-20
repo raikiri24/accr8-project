@@ -1,27 +1,18 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import ECommerceData from "../../ecommerce-data.json";
-class SalesForTheCity extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      cities: [],
-    };
-  }
-  componentDidMount() {
-    this.setState({
-      cities: SalesForTheCity.sold_products.city,
-    });
-  }
+import { Line } from "react-chartjs-2";
+import { CDBContainer } from "cdbreact";
 
-  render() {
-    return (
-      <ul>
-        {this.state.cities.map((city) => {
-          <li>{city}</li>;
-        })}
-      </ul>
-    );
-  }
+const cityThatSoldItems = ECommerceData.sold_products.map((sold_product) => {
+  const moneyTaken = sold_product.quantity * sold_product.price;
+  return {
+    city: sold_product.city,
+    moneyTaken: moneyTaken,
+  };
+});
+
+export function SalesForTheCity() {
+  console.log(cityThatSoldItems);
+
+  return <></>;
 }
-
-export default SalesForTheCity;

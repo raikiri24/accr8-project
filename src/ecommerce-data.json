@@ -1,9 +1,9 @@
 {
-  "users": [
+  "visitors": [
     { "id": 0, "name": "Paul Leandro", "isCustomer": true },
     { "id": 1, "name": "Paul Leandro", "isCustomer": true },
     { "id": 2, "name": "Paul Leandro", "isCustomer": true },
-    { "id": 3, "name": "Paul Leandro", "isCustomer": false },
+    { "id": 3, "name": "", "isCustomer": false },
     { "id": 4, "name": "Paul Leandro", "isCustomer": true }
   ],
   "products": [
@@ -64,7 +64,7 @@
     {
       "id": 3,
       "product_id": 0,
-      "city": "Paranaque",
+      "city": "Marinduque",
       "date_sold": "Thu May 18 2022 20:51:53",
       "quantity": 35,
       "price": 100
@@ -72,7 +72,7 @@
     {
       "id": 4,
       "product_id": 3,
-      "city": "Paranaque",
+      "city": "Makati",
       "date_sold": "Thu June 19 2022 20:51:53",
       "quantity": 42,
       "price": 100
@@ -80,7 +80,7 @@
     {
       "id": 5,
       "product_id": 0,
-      "city": "Paranaque",
+      "city": "Pasay",
       "date_sold": "Thu July 19 2022 20:51:53",
       "quantity": 55,
       "price": 100
@@ -88,10 +88,38 @@
     {
       "id": 6,
       "product_id": 2,
-      "city": "Paranaque",
+      "city": "Manila",
       "date_sold": "Thu August 19 2022 20:51:53",
       "quantity": 66,
       "price": 100
     }
+  ],
+  "sales_per_month": [
+    { "id": 0, "month": "January", "sales": 5000 },
+    { "id": 1, "month": "February", "sales": 10000 },
+    { "id": 2, "month": "March", "sales": 110000 },
+    { "id": 3, "month": "April", "sales": 2000 },
+    { "id": 4, "month": "May", "sales": 2000 },
+    { "id": 5, "month": "June", "sales": 2000 },
+    { "id": 6, "month": "July", "sales": 2000 },
+    { "id": 7, "month": "August", "sales": 2000 },
+    { "id": 8, "month": "September", "sales": 2000 },
+    { "id": 9, "month": "October", "sales": 2000 },
+    { "id": 10, "month": "November", "sales": 2000 },
+    { "id": 11, "month": "December", "sales": 2000 }
+  ],
+  "sales_per_city": [
+    { "id": 0, "city": "Paranaque", "sales": 5000 },
+    { "id": 1, "city": "Makati", "sales": 10000 },
+    { "id": 2, "city": "March", "sales": 110000 },
+    { "id": 3, "city": "April", "sales": 2000 },
+    { "id": 4, "city": "May", "sales": 2000 },
+    { "id": 5, "city": "June", "sales": 2000 },
+    { "id": 6, "city": "July", "sales": 2000 },
+    { "id": 7, "city": "August", "sales": 2000 },
+    { "id": 8, "city": "September", "sales": 2000 },
+    { "id": 9, "city": "October", "sales": 2000 },
+    { "id": 10, "city": "November", "sales": 2000 },
+    { "id": 11, "city": "December", "sales": 2000 }
   ]
 }

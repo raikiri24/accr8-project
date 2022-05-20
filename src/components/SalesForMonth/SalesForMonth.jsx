@@ -1,131 +1,64 @@
 import React, { useState, useEffect } from "react";
 import ECommerceData from "../../ecommerce-data.json";
-import { Line } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 import { CDBContainer } from "cdbreact";
 
-const months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
+function getSalesForMonth() {
+  let monthsBefore = [];
+  for (let i = 0; i < 5; i++) {
+    ECommerceData.sales_per_month.map((sale_per_month) => {
+      if (sale_per_month.id === new Date().getMonth() - i) {
+        monthsBefore.push(sale_per_month);
+      }
+    });
+  }
+  console.log("Month before", monthsBefore);
 
-function switchForDateArray(dateArr, forDate) {
-  let monthsArr = [];
-  dateArr.forEach((monthIdx) => {
-    switch (monthIdx + forDate) {
-      case 0:
-        months.push(months[0]);
-        break;
-      case 1:
-        monthsArr.push(months[1]);
-        break;
-      case 2:
-        monthsArr.push(months[2]);
-        break;
-      case 3:
-        monthsArr.push(months[3]);
-        break;
-      case 4:
-        monthsArr.push(months[4]);
-        break;
-      case 5:
-        monthsArr.push(months[5]);
-        break;
-      case 6:
-        monthsArr.push(months[6]);
-        break;
-      case 7:
-        monthsArr.push(months[7]);
-        break;
-      case 8:
-        monthsArr.push(months[8]);
-        break;
-      case 9:
-        monthsArr.push(months[9]);
-        break;
-      case 10:
-        monthsArr.push(months[10]);
-        break;
-      case 11:
-        monthsArr.push(months[11]);
-        break;
-      case -1:
-        monthsArr.push(months[11]);
-        break;
-      case -2:
-        monthsArr.push(months[10]);
-        break;
-      case -3:
-        monthsArr.push(months[9]);
-        break;
-      case -4:
-        monthsArr.push(months[8]);
-        break;
-      case -5:
-        monthsArr.push(months[4]);
-        break;
-      default:
-        break;
-    }
+  return monthsBefore;
+}
+//get Five Month from this month
+function getFiveMonthsFromNow() {
+  console.log(getSalesForMonth());
+  const fiveMonthBefore = getSalesForMonth().map((sales_for_month) => {
+    return sales_for_month.month;
   });
-  monthsArr.reverse((a, b) => {
+  fiveMonthBefore.reverse((a, b) => {
     if (a > b) {
       return -1;
     } else {
       return 1;
     }
   });
-  return monthsArr;
-}
-//DATE
-function getFiveMonthsFromNow() {
-  let monthsBefore = [];
-  for (let i = 1; i <= 5; i++) {
-    monthsBefore.push(new Date().getMonth() - i);
-  }
-
-  let fiveMonthBefore = switchForDateArray(monthsBefore, 1);
-
   return fiveMonthBefore;
 }
-
-function getSalesForMonth() {
-  const soldProductsMonth = ECommerceData.sold_products.map((sold_product) => {
-    const moneyTaken = sold_product.quantity * sold_product.price;
-    return {
-      months: months[new Date(sold_product.date_sold).getMonth()],
-      moneyTaken: moneyTaken,
-    };
+function getFiveMonthsSalesFromNow() {
+  console.log(getSalesForMonth());
+  const fiveMonthSalesBefore = getSalesForMonth().map((sales_for_month) => {
+    return sales_for_month.sales;
   });
-  const newSoldProductsMonth = [];
-  soldProductsMonth.forEach((soldProductmonth) => {
-    if (
-      Object.values(newSoldProductsMonth).indexOf(soldProductmonth.months) > -1
-    ) {
-      console.log("Hello");
+  fiveMonthSalesBefore.reverse((a, b) => {
+    if (a > b) {
+      return -1;
     } else {
-      newSoldProductsMonth.push(soldProductmonth);
+      return 1;
     }
   });
-  console.log(newSoldProductsMonth);
+  return fiveMonthSalesBefore;
 }
+
 export function SalesForMonth() {
-  getSalesForMonth();
   const [fiveMonthsBeforeArr, setFiveMonthsBeforeArr] = useState(
     getFiveMonthsFromNow()
   );
+  const [fiveMonthsSaleBeforeArr, setFiveMonthsSaleBeforeArr] = useState(
+    getFiveMonthsSalesFromNow()
+  );
+  // getFiveMonthsFromNow()
+
   const [data, setData] = useState({ labels: [], datasets: [] });
 
   useEffect(() => {
+    //console.log("useEffect", fiveMonthsBeforeArr);
     setData({
       ...data,
       labels: fiveMonthsBeforeArr,
@@ -149,7 +82,7 @@ export function SalesForMonth() {
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: [65, 59, 80, 81, 56, 55, 40],
+          data: fiveMonthsSaleBeforeArr,
         },
       ],
     });
@@ -158,7 +91,7 @@ export function SalesForMonth() {
   return (
     <CDBContainer>
       <h3 className="mt-5">Sales for Month</h3>
-      <Line data={data} options={{ responsive: true }} />
+      <Bar data={data} options={{ responsive: true }} />
     </CDBContainer>
   );
 }
