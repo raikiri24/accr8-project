@@ -1,46 +1,74 @@
-import React, { useState } from "react";
-import { Line } from "react-chartjs-2";
-import { CDBContainer } from "cdbreact";
+import React, { useEffect, useState } from "react";
+import { Doughnut } from "react-chartjs-2";
+import "../../stylesheets/custom_css.css";
 import ECommerceData from "../../ecommerce-data.json";
 
-function visitorsObj() {
+function visitorsNonCustomer() {
   let visitor_counter = 0;
-  let visitorCount = ECommerceData.visitors.map((user) => {
-    if (user.isCustomer) {
+  ECommerceData.visitors.map((user) => {
+    if (!user.isCustomer) {
       visitor_counter += 1;
     }
 
-    return user;
+    return visitor_counter;
   });
 
-  console.log("Count of Visitors", visitor_counter);
-
-  return visitorCount;
+  return visitor_counter;
 }
-
-export function Visitors() {
-  visitorsObj();
-  const [data] = useState({
-    datasets: [
-      {
-        label: "My First dataset",
-        backgroundColor: "rgba(194, 116, 161, 0.5)",
-        borderColor: "rgb(194, 116, 161)",
-        data: [65, 59, 90, 81, 56, 55, 40],
-      },
-      {
-        label: "My Second dataset",
-        backgroundColor: "rgba(71, 225, 167, 0.5)",
-        borderColor: "rgb(71, 225, 167)",
-        data: [28, 48, 40, 19, 96, 27, 100],
-      },
-    ],
+function visitorsCustomer() {
+  let visitor_counter = 0;
+  ECommerceData.visitors.map((user) => {
+    if (user.isCustomer) {
+      visitor_counter += 1;
+    }
   });
 
+  return visitor_counter;
+}
+export function Visitors() {
+  const [data, setData] = useState({ labels: [], datasets: [] });
+  const [customer] = useState(visitorsCustomer());
+  const [noncustomer] = useState(visitorsNonCustomer());
+  useEffect(() => {
+    setData({
+      labels: ["Visitor", "Customer"],
+      datasets: [
+        {
+          label: "Visitors",
+          data: [noncustomer, customer],
+          borderColor: ["rgba(255,206,86,0.2)"],
+          backgroundColor: ["rgba(232,99,132,1)", "rgba(232,211,6,1)"],
+          pointBackgroundColor: "rgba(255,206,86,0.2)",
+        },
+      ],
+    });
+  }, [customer, noncustomer]);
+  const options = {
+    plugins: {
+      title: {
+        display: true,
+        text: "Doughnut Chart",
+        color: "blue",
+        font: {
+          size: 34,
+        },
+        padding: {
+          top: 30,
+          bottom: 30,
+        },
+        responsive: true,
+        animation: {
+          animateScale: true,
+        },
+      },
+    },
+  };
   return (
-    <CDBContainer>
-      <h3 className="mt-5">Visitor Chart</h3>
-      <Line data={data} options={{ responsive: true }} />
-    </CDBContainer>
+    <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+      <div className="visitor-graph ">
+        <h3>Visitors</h3>
+        <Doughnut data={data} options={{ options }} />
+      </div>
+    </div>
   );
 }

@@ -12,6 +12,8 @@
       "product_name": "Apple",
       "product_price": "",
       "product_quantity": 35,
+      "company_bought_date": "Thu April 5 2022 20:51:53",
+      "quantity": 55,
       "sold": 100
     },
     {
@@ -19,6 +21,8 @@
       "product_name": "Banana",
       "product_price": "",
       "product_quantity": 56,
+      "company_bought_date": "Thu April 5 2022 20:51:53",
+      "quantity": 55,
       "sold": 55
     },
     {
@@ -26,6 +30,8 @@
       "product_name": "Orange",
       "product_price": "",
       "product_quantity": 25,
+      "company_bought_date": "Thu April 5 2022 20:51:53",
+      "quantity": 55,
       "sold": 78
     },
     {
@@ -33,6 +39,8 @@
       "product_name": "French Fries",
       "product_price": "",
       "product_quantity": 25,
+      "company_bought_date": "Thu April 5 2022 20:51:53",
+      "quantity": 55,
       "sold": 50
     }
   ],
@@ -41,7 +49,7 @@
       "id": 0,
       "product_id": 0,
       "city": "Paranaque",
-      "date_sold": "Thu April 19 2022 20:51:53",
+      "date_sold": "Thu April 20 2022 ",
       "quantity": 1,
       "price": 100
     },
@@ -49,7 +57,7 @@
       "id": 1,
       "product_id": 0,
       "city": "Paranaque",
-      "date_sold": "Thu May 19 2022 20:51:53",
+      "date_sold": "Thu May 19 2022",
       "quantity": 10,
       "price": 100
     },
@@ -57,7 +65,7 @@
       "id": 2,
       "product_id": 3,
       "city": "Paranaque",
-      "date_sold": "Thu May 19 2022 20:51:53",
+      "date_sold": "Thu May 19 2022",
       "quantity": 500,
       "price": 100
     },
@@ -65,7 +73,7 @@
       "id": 3,
       "product_id": 0,
       "city": "Marinduque",
-      "date_sold": "Thu May 18 2022 20:51:53",
+      "date_sold": "Thu May 18 2022",
       "quantity": 35,
       "price": 100
     },
@@ -73,7 +81,7 @@
       "id": 4,
       "product_id": 3,
       "city": "Makati",
-      "date_sold": "Thu June 19 2022 20:51:53",
+      "date_sold": "Thu June 19 2022",
       "quantity": 42,
       "price": 100
     },
@@ -81,7 +89,7 @@
       "id": 5,
       "product_id": 0,
       "city": "Pasay",
-      "date_sold": "Thu July 19 2022 20:51:53",
+      "date_sold": "Thu July 19 2022",
       "quantity": 55,
       "price": 100
     },
@@ -89,7 +97,7 @@
       "id": 6,
       "product_id": 2,
       "city": "Manila",
-      "date_sold": "Thu August 19 2022 20:51:53",
+      "date_sold": "Thu August 19 2022",
       "quantity": 66,
       "price": 100
     }
@@ -108,18 +116,27 @@
     { "id": 10, "month": "November", "sales": 2000 },
     { "id": 11, "month": "December", "sales": 2000 }
   ],
-  "sales_per_city": [
+  "cities": [
     { "id": 0, "city": "Paranaque", "sales": 5000 },
     { "id": 1, "city": "Makati", "sales": 10000 },
-    { "id": 2, "city": "March", "sales": 110000 },
-    { "id": 3, "city": "April", "sales": 2000 },
-    { "id": 4, "city": "May", "sales": 2000 },
-    { "id": 5, "city": "June", "sales": 2000 },
-    { "id": 6, "city": "July", "sales": 2000 },
-    { "id": 7, "city": "August", "sales": 2000 },
-    { "id": 8, "city": "September", "sales": 2000 },
-    { "id": 9, "city": "October", "sales": 2000 },
-    { "id": 10, "city": "November", "sales": 2000 },
-    { "id": 11, "city": "December", "sales": 2000 }
+    { "id": 2, "city": "Marinduque", "sales": 11 },
+    { "id": 3, "city": "Pasay", "sales": 2000 },
+    { "id": 4, "city": "Pampanga", "sales": 110000 },
+    { "id": 5, "city": "Manila", "sales": 5000 },
+    { "id": 6, "city": "Pasig", "sales": 3000 }
+  ],
+  "sales_per_day": [
+    { "id": 0, "date": "Thu May 19 2022 20:51:53", "sales": 5000 },
+    { "id": 1, "date": "Thu May 19 2022 20:51:53", "sales": 10000 },
+    { "id": 2, "date": "Thu May 19 2022 20:51:53", "sales": 110000 },
+    { "id": 3, "date": "Thu May 19 2022 20:51:53", "sales": 2000 },
+    { "id": 4, "date": "Thu May 19 2022 20:51:53", "sales": 2000 },
+    { "id": 5, "date": "Thu May 19 2022 20:51:53", "sales": 2000 },
+    { "id": 6, "date": "Thu May 19 2022 20:51:53", "sales": 2000 },
+    { "id": 7, "date": "Thu May 19 2022 20:51:53", "sales": 2000 },
+    { "id": 8, "date": "Thu May 19 2022 20:51:53", "sales": 2000 },
+    { "id": 9, "date": "Thu May 19 2022 20:51:53", "sales": 2000 },
+    { "id": 10, "date": "Thu May 19 2022 20:51:53", "sales": 2000 },
+    { "id": 11, "date": "Thu May 19 2022 20:51:53", "sales": 2000 }
   ]
 }

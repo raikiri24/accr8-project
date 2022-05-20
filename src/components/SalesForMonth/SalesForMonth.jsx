@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ECommerceData from "../../ecommerce-data.json";
 import { Bar } from "react-chartjs-2";
-import { CDBContainer } from "cdbreact";
 
 function getSalesForMonth() {
   let monthsBefore = [];
@@ -12,13 +11,11 @@ function getSalesForMonth() {
       }
     });
   }
-  console.log("Month before", monthsBefore);
 
   return monthsBefore;
 }
 //get Five Month from this month
 function getFiveMonthsFromNow() {
-  console.log(getSalesForMonth());
   const fiveMonthBefore = getSalesForMonth().map((sales_for_month) => {
     return sales_for_month.month;
   });
@@ -32,7 +29,6 @@ function getFiveMonthsFromNow() {
   return fiveMonthBefore;
 }
 function getFiveMonthsSalesFromNow() {
-  console.log(getSalesForMonth());
   const fiveMonthSalesBefore = getSalesForMonth().map((sales_for_month) => {
     return sales_for_month.sales;
   });
@@ -67,7 +63,7 @@ export function SalesForMonth() {
           label: "Sales for Month",
           fill: false,
           lineTension: 0.1,
-          backgroundColor: "rgba(194, 116, 161, 0.5)",
+          backgroundColor: "rgba(1, 116, 50, 0.5)",
           borderColor: "rgb(194, 116, 161)",
           borderCapStyle: "butt",
           borderDash: [],
@@ -89,9 +85,25 @@ export function SalesForMonth() {
   }, []);
 
   return (
-    <CDBContainer>
-      <h3 className="mt-5">Sales for Month</h3>
-      <Bar data={data} options={{ responsive: true }} />
-    </CDBContainer>
+    <div class="col-lg-4 mt-4 mb-3">
+      <div class="card z-index-2 ">
+        <div class="card-header card-header-graph p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+          <div class="bg-white shadow-dark z-depth-4 border-radius-lg py-3 pe-1">
+            <div class="chart">
+              <Bar data={data} options={{ responsive: true }} />
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <h6 className="mt-5">Sales per Month</h6>
+          <p class="text-sm ">Last Campaign Performance</p>
+          <hr class="dark horizontal" />
+          <div class="d-flex ">
+            <i class="material-icons text-sm my-auto me-1">schedule</i>
+            <p class="mb-0 text-sm">just updated</p>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
