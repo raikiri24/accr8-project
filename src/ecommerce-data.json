@@ -125,20 +125,7 @@
       "date_sold": "Thu August 19 2022"
     }
   ],
-  "sales_per_month": [
-    { "id": 0, "month": "January", "sales": 5000 },
-    { "id": 1, "month": "February", "sales": 10000 },
-    { "id": 2, "month": "March", "sales": 110000 },
-    { "id": 3, "month": "April", "sales": 2000 },
-    { "id": 4, "month": "May", "sales": 2000 },
-    { "id": 5, "month": "June", "sales": 2000 },
-    { "id": 6, "month": "July", "sales": 2000 },
-    { "id": 7, "month": "August", "sales": 2000 },
-    { "id": 8, "month": "September", "sales": 2000 },
-    { "id": 9, "month": "October", "sales": 2000 },
-    { "id": 10, "month": "November", "sales": 2000 },
-    { "id": 11, "month": "December", "sales": 2000 }
-  ],
+
   "cities": [
     { "id": 0, "city": "Paranaque", "sales": 5000 },
     { "id": 1, "city": "Makati", "sales": 10000 },
@@ -147,19 +134,5 @@
     { "id": 4, "city": "Pampanga", "sales": 110000 },
     { "id": 5, "city": "Manila", "sales": 5000 },
     { "id": 6, "city": "Pasig", "sales": 3000 }
-  ],
-  "sales_per_day": [
-    { "id": 0, "date": "Thu May 19 2022 20:51:53", "sales": 5000 },
-    { "id": 1, "date": "Thu May 19 2022 20:51:53", "sales": 10000 },
-    { "id": 2, "date": "Thu May 19 2022 20:51:53", "sales": 110000 },
-    { "id": 3, "date": "Thu May 19 2022 20:51:53", "sales": 2000 },
-    { "id": 4, "date": "Thu May 19 2022 20:51:53", "sales": 2000 },
-    { "id": 5, "date": "Thu May 19 2022 20:51:53", "sales": 2000 },
-    { "id": 6, "date": "Thu May 19 2022 20:51:53", "sales": 2000 },
-    { "id": 7, "date": "Thu May 19 2022 20:51:53", "sales": 2000 },
-    { "id": 8, "date": "Thu May 19 2022 20:51:53", "sales": 2000 },
-    { "id": 9, "date": "Thu May 19 2022 20:51:53", "sales": 2000 },
-    { "id": 10, "date": "Thu May 19 2022 20:51:53", "sales": 2000 },
-    { "id": 11, "date": "Thu May 19 2022 20:51:53", "sales": 2000 }
   ]
 }
