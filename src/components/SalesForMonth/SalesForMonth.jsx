@@ -78,7 +78,6 @@ export function SalesForMonth() {
   const [data, setData] = useState({ labels: [], datasets: [] });
 
   useEffect(() => {
-    //console.log("useEffect", fiveMonthsBeforeArr);
     setData({
       ...data,
       labels: fiveMonthsBeforeArr,

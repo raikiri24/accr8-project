@@ -39,7 +39,6 @@ function getSalesForDayObj() {
 
 //get Five Month from this month
 function getFiveDaysFromNow() {
-  console.log(getSalesForDayObj());
   const fiveDaysBefore = getSalesForDayObj().map((sales_for_month) => {
     return sales_for_month.date_sold;
   });
@@ -77,7 +76,7 @@ function getFiveDaysSalesFromNow() {
       }
     });
   });
-  console.log(salesPerDay);
+
   return salesPerDay;
 }
 
