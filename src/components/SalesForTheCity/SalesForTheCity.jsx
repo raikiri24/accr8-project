@@ -33,7 +33,7 @@ export function SalesForTheCity() {
       labels: cities,
       datasets: [
         {
-          label: "Sales for Month",
+          label: "Sales per City",
           fill: false,
           lineTension: 0.1,
           backgroundColor: "rgba(1, 116, 161, 0.5)",
