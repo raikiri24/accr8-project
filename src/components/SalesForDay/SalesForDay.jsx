@@ -27,6 +27,7 @@ function getSalesForDayObj() {
 
         dayBefore.push(ECommerceData.sold_products[i]);
       }
+
       day -= 1;
     }
     date = new Date(new Date().getFullYear(), new Date().getMonth(), day);
@@ -136,7 +137,7 @@ export function SalesForDay() {
         </div>
         <div className="card-body">
           <h3 className="" style={{ textAlign: "center" }}>
-            SALES PER MONTH
+            SALES PER DAY
           </h3>
 
           <hr className="dark horizontal" />
