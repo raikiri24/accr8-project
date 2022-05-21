@@ -1,13 +1,13 @@
 {
-  "main.css": "/static/css/main.b0f7ac9e.chunk.css",
-  "main.js": "/static/js/main.c8c7209a.chunk.js",
-  "main.js.map": "/static/js/main.c8c7209a.chunk.js.map",
-  "static/js/1.19f43b1e.chunk.js": "/static/js/1.19f43b1e.chunk.js",
-  "static/js/1.19f43b1e.chunk.js.map": "/static/js/1.19f43b1e.chunk.js.map",
-  "runtime~main.js": "/static/js/runtime~main.229c360f.js",
-  "runtime~main.js.map": "/static/js/runtime~main.229c360f.js.map",
-  "static/css/main.b0f7ac9e.chunk.css.map": "/static/css/main.b0f7ac9e.chunk.css.map",
-  "index.html": "/index.html",
-  "precache-manifest.26037303d77cf3d02b2ceac499cd70f4.js": "/precache-manifest.26037303d77cf3d02b2ceac499cd70f4.js",
-  "service-worker.js": "/service-worker.js"
+  "main.css": "/accr8-project/static/css/main.b0f7ac9e.chunk.css",
+  "main.js": "/accr8-project/static/js/main.c8c7209a.chunk.js",
+  "main.js.map": "/accr8-project/static/js/main.c8c7209a.chunk.js.map",
+  "static/js/1.19f43b1e.chunk.js": "/accr8-project/static/js/1.19f43b1e.chunk.js",
+  "static/js/1.19f43b1e.chunk.js.map": "/accr8-project/static/js/1.19f43b1e.chunk.js.map",
+  "runtime~main.js": "/accr8-project/static/js/runtime~main.a4034ce6.js",
+  "runtime~main.js.map": "/accr8-project/static/js/runtime~main.a4034ce6.js.map",
+  "static/css/main.b0f7ac9e.chunk.css.map": "/accr8-project/static/css/main.b0f7ac9e.chunk.css.map",
+  "index.html": "/accr8-project/index.html",
+  "precache-manifest.bbc8788ebe41fef7b365599f3768b25e.js": "/accr8-project/precache-manifest.bbc8788ebe41fef7b365599f3768b25e.js",
+  "service-worker.js": "/accr8-project/service-worker.js"
 }
