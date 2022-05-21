@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/accr8-project/static/js/runtime~main.a4034ce6.js"
   },
   {
-    "revision": "8e2a9d67bf29c8e4cb2f2ed61fc58a3e",
+    "revision": "740af9a13222c41d9b076b077ca8e54b",
     "url": "/accr8-project/index.html"
   }
 ];
