@@ -40,7 +40,12 @@ Company owning an eCommerce website selling grains such as rice, wheat and corn 
 
 ![Mobile Lighthouse Result](Mobile_Lighthouse.png "Mobile Lighthouse Result")
 
-STRUGGLES:
+## MISTAKES
+
+- I started at creating a JSON file so that I can test it everytime BUT I figured out that I should have started on creating an object in javascript so that I can have an idea on what should my data would look like in the backend and just convert it into a JSON file after.
+- I wasted my time looking for a chart for react and eventually ending up in chartjs
+
+## STRUGGLES:
 
 1.  MANIPULATING OBJECTS (Comparing object values)
     ![manipulating objects](manipulating_object.png "Manipulating Object")
