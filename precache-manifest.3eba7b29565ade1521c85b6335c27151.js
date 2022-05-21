@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "c8c7209a224264fed388",
+    "revision": "09b2b6a09c867750d91b",
     "url": "/accr8-project/static/css/main.b0f7ac9e.chunk.css"
   },
   {
-    "revision": "c8c7209a224264fed388",
-    "url": "/accr8-project/static/js/main.c8c7209a.chunk.js"
+    "revision": "09b2b6a09c867750d91b",
+    "url": "/accr8-project/static/js/main.09b2b6a0.chunk.js"
   },
   {
     "revision": "19f43b1ef2893daf19a8",
@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/accr8-project/static/js/runtime~main.a4034ce6.js"
   },
   {
-    "revision": "740af9a13222c41d9b076b077ca8e54b",
+    "revision": "e5a6bb92af0ff85317827c303c2cbacc",
     "url": "/accr8-project/index.html"
   }
 ];
