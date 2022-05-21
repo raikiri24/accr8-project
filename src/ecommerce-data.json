@@ -47,59 +47,82 @@
   "sold_products": [
     {
       "id": 0,
-      "product_id": 0,
+      "product": {
+        "id": 0,
+        "product_name": "Apple",
+        "product_price": 50,
+        "quantity": 20
+      },
+
       "city": "Paranaque",
-      "date_sold": "Thu April 20 2022",
-      "quantity": 1,
-      "price": 100
+      "date_sold": "Thu May 19 2022"
     },
+
     {
       "id": 1,
-      "product_id": 0,
+      "product": {
+        "id": 1,
+        "product_name": "Apple",
+        "product_price": 50,
+        "quantity": 20
+      },
       "city": "Paranaque",
-      "date_sold": "Thu May 19 2022",
-      "quantity": 10,
-      "price": 100
+      "date_sold": "Thu May 20 2022"
     },
     {
       "id": 2,
-      "product_id": 3,
+      "product": {
+        "id": 2,
+        "product_name": "Apple",
+        "product_price": 30,
+        "quantity": 20
+      },
       "city": "Paranaque",
-      "date_sold": "Thu May 19 2022",
-      "quantity": 500,
-      "price": 100
+      "date_sold": "Thu May 20 2022"
     },
     {
       "id": 3,
-      "product_id": 0,
+      "product": {
+        "id": 3,
+        "product_name": "Apple",
+        "product_price": 20,
+        "quantity": 20
+      },
       "city": "Marinduque",
-      "date_sold": "Thu May 18 2022",
-      "quantity": 35,
-      "price": 100
+      "date_sold": "Thu May 18 2022"
     },
     {
       "id": 4,
-      "product_id": 3,
+      "product": {
+        "id": 4,
+        "product_name": "Apple",
+        "product_price": 10,
+        "quantity": 20
+      },
       "city": "Makati",
-      "date_sold": "Thu June 19 2022",
-      "quantity": 42,
-      "price": 100
+      "date_sold": "Thu May 19 2022"
     },
     {
       "id": 5,
-      "product_id": 0,
+      "product": {
+        "id": 5,
+        "product_name": "Apple",
+        "product_price": 50,
+        "quantity": 20
+      },
       "city": "Pasay",
-      "date_sold": "Thu July 19 2022",
-      "quantity": 55,
-      "price": 100
+      "date_sold": "Thu July 19 2022"
     },
     {
       "id": 6,
-      "product_id": 2,
+      "product": {
+        "id": 0,
+        "product_name": "Apple",
+        "product_price": 50,
+        "quantity": 20
+      },
       "city": "Manila",
-      "date_sold": "Thu August 19 2022",
-      "quantity": 66,
-      "price": 100
+      "date_sold": "Thu August 19 2022"
     }
   ],
   "sales_per_month": [

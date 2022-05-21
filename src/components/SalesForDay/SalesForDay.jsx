@@ -10,13 +10,21 @@ function getSalesForDayObj() {
   let i = 0;
   do {
     if (dayBefore === undefined || dayBefore.length === 0) {
+      ECommerceData.sold_products[i].sales_per_day =
+        ECommerceData.sold_products[i].product.quantity *
+        ECommerceData.sold_products[i].product.product_price;
       dayBefore.push(ECommerceData.sold_products[i]);
+
       day -= 1;
     } else {
       if (
         new Date(date).getTime() ===
         new Date(ECommerceData.sold_products[i].date_sold).getTime()
       ) {
+        ECommerceData.sold_products[i].sales_per_day =
+          ECommerceData.sold_products[i].product.quantity *
+          ECommerceData.sold_products[i].product.product_price;
+
         dayBefore.push(ECommerceData.sold_products[i]);
       }
       day -= 1;
@@ -31,6 +39,7 @@ function getSalesForDayObj() {
 
 //get Five Month from this month
 function getFiveDaysFromNow() {
+  console.log(getSalesForDayObj());
   const fiveDaysBefore = getSalesForDayObj().map((sales_for_month) => {
     return sales_for_month.date_sold;
   });
@@ -46,40 +55,41 @@ function getFiveDaysFromNow() {
 }
 function getFiveDaysSalesFromNow() {
   let sales = ECommerceData.sold_products;
-  let day = new Date().getDate();
-  let date = new Date(new Date().getFullYear(), new Date().getMonth(), day);
-
-  let i = 0;
-
-  // ECommerceData.sold_products.map((sold_product) => {
-  //   if (
-  //     new Date(getSalesForDayObj()[i].date_sold).getTime() ===
-  //     new Date(ECommerceData.sold_products[i].date_sold).getTime()
-  //   ) {
-  //     sales.push(ECommerceData.sold_products[i]);
-  //   }
-
-  //   date = new Date(new Date().getFullYear(), new Date().getMonth(), day);
-  //   day -= 1;
-  //   i += 1;
-  // });
+  let salesPerDay = getSalesForDayObj();
   ECommerceData.sold_products.map((sold_product) => {
     sales.map((sale) => {
-      if (
-        JSON.stringify(sale.date_sold) !==
-        JSON.stringify(sold_product.date_sold)
-      ) {
-        //sale.quantity * sale.price;
+      if (JSON.stringify(sale.id) !== JSON.stringify(sold_product.id)) {
+        if (
+          JSON.stringify(sale.date_sold) ===
+          JSON.stringify(sold_product.date_sold)
+        ) {
+          salesPerDay.map((saleforday) => {
+            //salesArr.push(saleforday);
+            if (
+              JSON.stringify(sale.date_sold) ===
+              JSON.stringify(saleforday.date_sold)
+            ) {
+              saleforday.sales_per_day +=
+                sale.product.quantity * sale.product.product_price;
+            }
+          });
+        }
       }
     });
   });
-
-  return [];
+  console.log(salesPerDay);
+  return salesPerDay;
 }
 
 export function SalesForDay() {
   const [fiveDaysBefore] = useState(getFiveDaysFromNow());
-  const [fiveDaysSaleBeforeArr] = useState(getFiveDaysSalesFromNow());
+  const [fiveDaysSaleBeforeArr] = useState(
+    getFiveDaysSalesFromNow()
+      .reverse()
+      .map((salesperday) => {
+        return salesperday.sales_per_day;
+      })
+  );
 
   // getFiveMonthsFromNow()
 
