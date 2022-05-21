@@ -64,7 +64,7 @@ export function Visitors() {
     },
   };
   return (
-    <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+    <div className="col-xl-3 col-sm-6 mb-xl-0 mb-4">
       <div className="visitor-graph ">
         <h3>Visitors</h3>
         <Doughnut data={data} options={{ options }} />

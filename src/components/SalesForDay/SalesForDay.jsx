@@ -45,33 +45,42 @@ function getFiveDaysFromNow() {
   return fiveDaysBefore;
 }
 function getFiveDaysSalesFromNow() {
-  let sales = [];
+  let sales = ECommerceData.sold_products;
   let day = new Date().getDate();
   let date = new Date(new Date().getFullYear(), new Date().getMonth(), day);
 
   let i = 0;
-  do {
-    if (
-      new Date(getSalesForDayObj()[i].date_sold).getTime() ===
-      new Date(ECommerceData.sold_products[i].date_sold).getTime()
-    ) {
-      sales.push(ECommerceData.sold_products[i]);
-    }
-    day -= 1;
 
-    date = new Date(new Date().getFullYear(), new Date().getMonth(), day);
+  // ECommerceData.sold_products.map((sold_product) => {
+  //   if (
+  //     new Date(getSalesForDayObj()[i].date_sold).getTime() ===
+  //     new Date(ECommerceData.sold_products[i].date_sold).getTime()
+  //   ) {
+  //     sales.push(ECommerceData.sold_products[i]);
+  //   }
 
-    i += 1;
-  } while (i < getSalesForDayObj().length);
+  //   date = new Date(new Date().getFullYear(), new Date().getMonth(), day);
+  //   day -= 1;
+  //   i += 1;
+  // });
+  ECommerceData.sold_products.map((sold_product) => {
+    sales.map((sale) => {
+      if (
+        JSON.stringify(sale.date_sold) !==
+        JSON.stringify(sold_product.date_sold)
+      ) {
+        //sale.quantity * sale.price;
+      }
+    });
+  });
 
   return [];
 }
 
 export function SalesForDay() {
-  const [fiveDaysBefore, setFiveDaysBefore] = useState(getFiveDaysFromNow());
-  const [fiveMonthsSaleBeforeArr, setFiveMonthsSaleBeforeArr] = useState(
-    getFiveDaysSalesFromNow()
-  );
+  const [fiveDaysBefore] = useState(getFiveDaysFromNow());
+  const [fiveDaysSaleBeforeArr] = useState(getFiveDaysSalesFromNow());
+
   // getFiveMonthsFromNow()
 
   const [data, setData] = useState({ labels: [], datasets: [] });
@@ -100,28 +109,28 @@ export function SalesForDay() {
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: fiveMonthsSaleBeforeArr,
+          data: fiveDaysSaleBeforeArr,
         },
       ],
     });
   }, []);
 
   return (
-    <div class="col-lg-4 mt-4 mb-3">
-      <div class="card z-index-2 ">
-        <div class="card-header card-header-graph p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
-          <div class="bg-white shadow-dark z-depth-4 border-radius-lg py-3 pe-1">
-            <div class="chart">
+    <div className="col-lg-4 mt-4 mb-3">
+      <div className="card z-index-2 ">
+        <div className="card-header card-header-graph p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+          <div className="bg-white shadow-dark z-depth-4 border-radius-lg py-3 pe-1">
+            <div className="chart">
               <Bar data={data} options={{ responsive: true }} />
             </div>
           </div>
         </div>
-        <div class="card-body">
-          <h3 class="" style={{ textAlign: "center" }}>
+        <div className="card-body">
+          <h3 className="" style={{ textAlign: "center" }}>
             SALES PER MONTH
           </h3>
 
-          <hr class="dark horizontal" />
+          <hr className="dark horizontal" />
         </div>
       </div>
     </div>

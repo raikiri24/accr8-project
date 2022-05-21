@@ -18,12 +18,12 @@ function App() {
     <>
       <Sidebar />
 
-      <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+      <main className="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
         <Topbar />
-        <div class="nonrelated">
+        <div className="nonrelated">
           <NonRelated />
         </div>
-        <div class="row mt-4">
+        <div className="row mt-4">
           <TopSellingItem />
 
           <SlowMovementItem />
