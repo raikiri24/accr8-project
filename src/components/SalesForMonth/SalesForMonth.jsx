@@ -2,12 +2,29 @@ import React, { useState, useEffect } from "react";
 import ECommerceData from "../../ecommerce-data.json";
 import { Bar } from "react-chartjs-2";
 
+const monthsArr = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
 function getSalesForMonth() {
   let monthsBefore = [];
   for (let i = 0; i < 5; i++) {
-    ECommerceData.sales_per_month.map((sale_per_month) => {
-      if (sale_per_month.id === new Date().getMonth() - i) {
-        monthsBefore.push(sale_per_month);
+    ECommerceData.sold_products.map((productsold) => {
+      const month = new Date(productsold.date_sold).getMonth();
+      if (month === new Date().getMonth() - i) {
+        productsold.sales_per_month = 0;
+        monthsBefore.push(productsold);
       }
     });
   }
@@ -17,8 +34,9 @@ function getSalesForMonth() {
 //get Five Month from this month
 function getFiveMonthsFromNow() {
   const fiveMonthBefore = getSalesForMonth().map((sales_for_month) => {
-    return sales_for_month.month;
+    return monthsArr[new Date(sales_for_month.date_sold).getMonth()];
   });
+
   fiveMonthBefore.reverse((a, b) => {
     if (a > b) {
       return -1;
@@ -29,8 +47,14 @@ function getFiveMonthsFromNow() {
   return fiveMonthBefore;
 }
 function getFiveMonthsSalesFromNow() {
+  let sales = getSalesForMonth();
+
   const fiveMonthSalesBefore = getSalesForMonth().map((sales_for_month) => {
-    return sales_for_month.sales;
+    sales.map((sale) => {
+      sales_for_month.sales_per_month +=
+        sale.product.quantity * sale.product.product_price;
+    });
+    return sales_for_month.sales_per_month;
   });
   fiveMonthSalesBefore.reverse((a, b) => {
     if (a > b) {
