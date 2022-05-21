@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { CDBContainer, CDBBox } from "cdbreact";
+import React from "react";
+
 import { Chart as ChartJS } from "chart.js/auto";
 import { Chart } from "react-chartjs-2";
 import { Visitors } from "./components/Visitors/Visitors";
@@ -10,7 +10,7 @@ import { SlowMovementItem } from "./components/SlowMovementItem/SlowMovementItem
 import { SalesForDay } from "./components/SalesForDay/SalesForDay";
 import "./stylesheets/custom_css.css";
 import { Sidebar } from "./components/SideBar/Sidebar";
-import { Topbar } from "./components/topbar/Topbar";
+import { Topbar } from "./components/Topbar/Topbar";
 import { NonRelated } from "./components/non-related/NonRelated";
 import { Footer } from "./components/Footer/Footer";
 function App() {

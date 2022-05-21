@@ -56,20 +56,20 @@ export function SalesForTheCity() {
     });
   }, []);
   return (
-    <div class="col-lg-4 mt-4 mb-3">
-      <div class="card z-index-2 ">
-        <div class="card-header  card-header-graph p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
-          <div class="bg-white shadow-dark z-depth-4 border-radius-lg py-3 pe-1">
-            <div class="chart">
+    <div className="col-lg-4 mt-4 mb-3">
+      <div className="card z-index-2 ">
+        <div className="card-header  card-header-graph p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+          <div className="bg-white shadow-dark z-depth-4 border-radius-lg py-3 pe-1">
+            <div className="chart">
               <Bar data={data} options={{ responsive: true }} />
             </div>
           </div>
         </div>
-        <div class="card-body">
-          <h3 class="" style={{ textAlign: "center" }}>
+        <div className="card-body">
+          <h3 className="" style={{ textAlign: "center" }}>
             SALES PER CITY
           </h3>
-          <hr class="dark horizontal" />
+          <hr className="dark horizontal" />
         </div>
       </div>
     </div>

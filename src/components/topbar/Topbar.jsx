@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 export function Topbar() {
   return (
     <nav
@@ -69,7 +69,7 @@ export function Topbar() {
               <li className="nav-item dropdown pe-2 d-flex align-items-center">
                 <Link
                   to="/"
-                  class="nav-link text-body p-0"
+                  className="nav-link text-body p-0"
                   id="dropdownMenuButton"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
