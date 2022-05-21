@@ -21,3 +21,13 @@ h3 {
 .chart {
   padding: max(3ch, 1ch);
 }
+
+@media only screen and (max-width: 600px) {
+  .scroll {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+  }
+  .scroll > * {
+    scroll-snap-align: start;
+  }
+}

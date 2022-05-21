@@ -11,7 +11,7 @@ import { SalesForDay } from "./components/SalesForDay/SalesForDay";
 import "./stylesheets/custom_css.css";
 import { Sidebar } from "./components/SideBar/Sidebar";
 import { Topbar } from "./components/Topbar/Topbar";
-import { NonRelated } from "./components/non-related/NonRelated";
+import { NonRelated } from "./components/NonRelated/NonRelated";
 import { Footer } from "./components/Footer/Footer";
 function App() {
   return (
@@ -20,19 +20,21 @@ function App() {
 
       <main className="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
         <Topbar />
-        <div className="nonrelated">
-          <NonRelated />
-        </div>
-        <div className="row mt-4">
-          <TopSellingItem />
+        <div className="scroll">
+          <div className="nonrelated">
+            <NonRelated />
+          </div>
+          <div className="row mt-4">
+            <TopSellingItem />
 
-          <SlowMovementItem />
-          <Visitors />
-        </div>
-        <div className="row mt-4">
-          <SalesForTheCity />
-          <SalesForMonth />
-          <SalesForDay />
+            <SlowMovementItem />
+            <Visitors />
+          </div>
+          <div className="row mt-4">
+            <SalesForTheCity />
+            <SalesForMonth />
+            <SalesForDay />
+          </div>
         </div>
         <Footer />
       </main>

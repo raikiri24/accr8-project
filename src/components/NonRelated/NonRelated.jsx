@@ -20,9 +20,25 @@ function visitorsCustomer() {
   });
   return visitor_counter;
 }
+
+function getAllSales() {
+  const salesTemp = EcommerceData.sold_products.map((all_sales) => {
+    all_sales.sales = 0;
+
+    return all_sales;
+  });
+  let sales = 0;
+  salesTemp.map((tempSales) => {
+    sales += tempSales.product.quantity * tempSales.product.product_price;
+  });
+
+  return sales;
+}
+
 export function NonRelated() {
   const [visitors] = useState(webVisitors());
   const [clients] = useState(visitorsCustomer());
+  const [allSales] = useState(getAllSales());
   return (
     <div className="row mt-6 mb-5 non-related">
       <div className="col-xl-3 col-sm-6 mb-xl-0 mb-4">
@@ -33,7 +49,10 @@ export function NonRelated() {
             </div>
             <div className="text-end pt-1">
               <p className="text-sm mb-0 text-capitalize">Today's Money</p>
-              <h4 className="mb-0"> {"\u20b1"} 3k</h4>
+              <h4 className="mb-0">
+                {" "}
+                {"\u20b1"} {allSales}
+              </h4>
             </div>
           </div>
           <hr className="dark horizontal my-0" />

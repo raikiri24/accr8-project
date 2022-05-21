@@ -63,16 +63,14 @@ function getFiveDaysSalesFromNow() {
           JSON.stringify(sale.date_sold) ===
           JSON.stringify(sold_product.date_sold)
         ) {
-          salesPerDay.map((saleforday) => {
-            //salesArr.push(saleforday);
-            if (
-              JSON.stringify(sale.date_sold) ===
-              JSON.stringify(saleforday.date_sold)
-            ) {
-              saleforday.sales_per_day +=
-                sale.product.quantity * sale.product.product_price;
-            }
-          });
+          //salesArr.push(saleforday);
+          if (
+            JSON.stringify(sale.date_sold) ===
+            JSON.stringify(sold_product.date_sold)
+          ) {
+            sold_product.sales_per_day +=
+              sale.product.quantity * sale.product.product_price;
+          }
         }
       }
     });

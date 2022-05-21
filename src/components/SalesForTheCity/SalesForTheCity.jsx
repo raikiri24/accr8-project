@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import ECommerceData from "../../ecommerce-data.json";
 import { Bar } from "react-chartjs-2";
 
-const cityThatSoldItemsObj = ECommerceData.cities.map((t) => ({
+const cityThatSoldItemsObj = ECommerceData.cities.map((t) => (
+  
+  {
   city: t.city,
   moneyTaken: t.sales,
 }));
