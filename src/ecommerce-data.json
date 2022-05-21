@@ -127,12 +127,96 @@
   ],
 
   "cities": [
-    { "id": 0, "city": "Paranaque", "sales": 5000 },
-    { "id": 1, "city": "Makati", "sales": 10000 },
-    { "id": 2, "city": "Marinduque", "sales": 11 },
-    { "id": 3, "city": "Pasay", "sales": 2000 },
-    { "id": 4, "city": "Pampanga", "sales": 110000 },
-    { "id": 5, "city": "Manila", "sales": 5000 },
-    { "id": 6, "city": "Pasig", "sales": 3000 }
+    {
+      "id": 0,
+      "city": "Paranaque",
+      "sold_products": [
+        {
+          "id": 0,
+          "product": {
+            "id": 0,
+            "product_name": "Apple",
+            "product_price": 50,
+            "quantity": 20
+          },
+
+          "city": "Paranaque",
+          "date_sold": "Thu May 19 2022"
+        },
+
+        {
+          "id": 1,
+          "product": {
+            "id": 1,
+            "product_name": "Apple",
+            "product_price": 50,
+            "quantity": 20
+          },
+          "city": "Paranaque",
+          "date_sold": "Thu May 20 2022"
+        },
+        {
+          "id": 2,
+          "product": {
+            "id": 2,
+            "product_name": "Apple",
+            "product_price": 30,
+            "quantity": 20
+          },
+          "city": "Paranaque",
+          "date_sold": "Thu May 20 2022"
+        },
+        {
+          "id": 3,
+          "product": {
+            "id": 3,
+            "product_name": "Apple",
+            "product_price": 20,
+            "quantity": 20
+          },
+          "city": "Marinduque",
+          "date_sold": "Thu May 18 2022"
+        },
+        {
+          "id": 4,
+          "product": {
+            "id": 4,
+            "product_name": "Apple",
+            "product_price": 10,
+            "quantity": 20
+          },
+          "city": "Makati",
+          "date_sold": "Thu May 19 2022"
+        },
+        {
+          "id": 5,
+          "product": {
+            "id": 5,
+            "product_name": "Apple",
+            "product_price": 50,
+            "quantity": 20
+          },
+          "city": "Pasay",
+          "date_sold": "Thu July 19 2022"
+        },
+        {
+          "id": 6,
+          "product": {
+            "id": 0,
+            "product_name": "Apple",
+            "product_price": 50,
+            "quantity": 20
+          },
+          "city": "Manila",
+          "date_sold": "Thu August 19 2022"
+        }
+      ]
+    },
+    { "id": 1, "city": "Makati", "sales": 0 },
+    { "id": 2, "city": "Marinduque", "sales": 0 },
+    { "id": 3, "city": "Pasay", "sales": 0 },
+    { "id": 4, "city": "Pampanga", "sales": 3000 },
+    { "id": 5, "city": "Manila", "sales": 0 },
+    { "id": 6, "city": "Pasig", "sales": 0 }
   ]
 }

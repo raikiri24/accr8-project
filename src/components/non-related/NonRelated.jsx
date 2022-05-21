@@ -1,6 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
+import EcommerceData from "../../ecommerce-data.json";
 
+function webVisitors() {
+  let visitor_counter = 0;
+  EcommerceData.visitors.map((user) => {
+    visitor_counter += 1;
+
+    return visitor_counter;
+  });
+
+  return visitor_counter;
+}
+function visitorsCustomer() {
+  let visitor_counter = 0;
+  EcommerceData.visitors.map((user) => {
+    if (user.isCustomer) {
+      visitor_counter += 1;
+    }
+  });
+  return visitor_counter;
+}
 export function NonRelated() {
+  const [visitors] = useState(webVisitors());
+  const [clients] = useState(visitorsCustomer());
   return (
     <div className="row mt-6 mb-5 non-related">
       <div className="col-xl-3 col-sm-6 mb-xl-0 mb-4">
@@ -11,7 +33,7 @@ export function NonRelated() {
             </div>
             <div className="text-end pt-1">
               <p className="text-sm mb-0 text-capitalize">Today's Money</p>
-              <h4 className="mb-0">$53k</h4>
+              <h4 className="mb-0"> {"\u20b1"} 3k</h4>
             </div>
           </div>
           <hr className="dark horizontal my-0" />
@@ -32,8 +54,8 @@ export function NonRelated() {
               <i className="material-icons opacity-10">person</i>
             </div>
             <div className="text-end pt-1">
-              <p className="text-sm mb-0 text-capitalize">Today's Users</p>
-              <h4 className="mb-0">2,300</h4>
+              <p className="text-sm mb-0 text-capitalize">Today's Visitor</p>
+              <h4 className="mb-0">{visitors}</h4>
             </div>
           </div>
           <hr className="dark horizontal my-0" />
@@ -42,7 +64,7 @@ export function NonRelated() {
               <span className="text-success text-sm font-weight-bolder">
                 +3%{" "}
               </span>
-              than lask month
+              than last month
             </p>
           </div>
         </div>
@@ -55,16 +77,16 @@ export function NonRelated() {
             </div>
             <div className="text-end pt-1">
               <p className="text-sm mb-0 text-capitalize">New Clients</p>
-              <h4 className="mb-0">3,462</h4>
+              <h4 className="mb-0">{clients}</h4>
             </div>
           </div>
           <hr className="dark horizontal my-0" />
           <div className="card-footer p-3">
             <p className="mb-0">
-              <span className="text-danger text-sm font-weight-bolder">
-                -2%
+              <span className="text-success text-sm font-weight-bolder">
+                +400%
               </span>{" "}
-              than yesterday
+              than last month
             </p>
           </div>
         </div>
