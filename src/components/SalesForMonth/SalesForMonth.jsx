@@ -23,6 +23,8 @@ function getSalesForMonth() {
     ECommerceData.sold_products.map((productsold) => {
       const month = new Date(productsold.date_sold).getMonth();
       if (month === new Date().getMonth() - i) {
+        productsold.month =
+          monthsArr[new Date(productsold.date_sold).getMonth()];
         productsold.sales_per_month = 0;
         monthsBefore.push(productsold);
       }
@@ -31,6 +33,7 @@ function getSalesForMonth() {
 
   return monthsBefore;
 }
+
 //get Five Month from this month
 function getFiveMonthsFromNow() {
   const fiveMonthBefore = getSalesForMonth().map((sales_for_month) => {
@@ -46,6 +49,7 @@ function getFiveMonthsFromNow() {
   });
   return fiveMonthBefore;
 }
+
 function getFiveMonthsSalesFromNow() {
   let sales = getSalesForMonth();
 
@@ -74,13 +78,15 @@ export function SalesForMonth() {
     getFiveMonthsSalesFromNow()
   );
   // getFiveMonthsFromNow()
-
+  const fiveMonthsBeforeArrRemovedRedundancy = [
+    ...new Set(fiveMonthsBeforeArr),
+  ];
   const [data, setData] = useState({ labels: [], datasets: [] });
 
   useEffect(() => {
     setData({
       ...data,
-      labels: fiveMonthsBeforeArr,
+      labels: fiveMonthsBeforeArrRemovedRedundancy,
       datasets: [
         {
           label: "Sales for Month",
