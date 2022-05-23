@@ -7,34 +7,33 @@ function getSalesForDayObj() {
   let date = new Date(new Date().getFullYear(), new Date().getMonth(), day);
 
   let dayBefore = [];
-  let i = 0;
-  do {
-    if (dayBefore === undefined || dayBefore.length === 0) {
-      ECommerceData.sold_products[i].sales_per_day =
-        ECommerceData.sold_products[i].product.quantity *
-        ECommerceData.sold_products[i].product.product_price;
-      dayBefore.push(ECommerceData.sold_products[i]);
 
-      day -= 1;
-    } else {
+  const addedSalesPerDay = ECommerceData.sold_products.map((all_products) => {
+    all_products.sales_per_day = 0;
+
+    return all_products;
+  });
+
+  addedSalesPerDay.map((product) => {
+    for (let i = 0; i < 5; i++) {
       if (
         new Date(date).getTime() ===
-        new Date(ECommerceData.sold_products[i].date_sold).getTime()
+        new Date(
+          product.date_sold.year,
+          product.date_sold.month,
+          product.date_sold.day
+        ).getTime()
       ) {
-        ECommerceData.sold_products[i].sales_per_day =
-          ECommerceData.sold_products[i].product.quantity *
-          ECommerceData.sold_products[i].product.product_price;
+        product.sales_per_day =
+          product.product.quantity * product.product.product_price;
 
-        dayBefore.push(ECommerceData.sold_products[i]);
+        dayBefore.push(product);
       }
-
       day -= 1;
+      date = new Date(new Date().getFullYear(), new Date().getMonth(), day);
     }
-    date = new Date(new Date().getFullYear(), new Date().getMonth(), day);
-
-    i += 1;
-  } while (i < ECommerceData.sold_products.length);
-
+  });
+  console.log(dayBefore);
   return dayBefore;
 }
 
@@ -60,13 +59,29 @@ function getFiveDaysSalesFromNow() {
     sales.map((sale) => {
       if (JSON.stringify(sale.id) !== JSON.stringify(sold_product.id)) {
         if (
-          JSON.stringify(sale.date_sold) ===
-          JSON.stringify(sold_product.date_sold)
+          new Date(
+            sale.date_sold.year,
+            sale.date_sold.month,
+            sale.date_sold.day
+          ).getTime() ===
+          new Date(
+            sold_product.date_sold.year,
+            sold_product.date_sold.month,
+            sold_product.date_sold.day
+          ).getTime()
         ) {
           //salesArr.push(saleforday);
           if (
-            JSON.stringify(sale.date_sold) ===
-            JSON.stringify(sold_product.date_sold)
+            new Date(
+              sale.date_sold.year,
+              sale.date_sold.month,
+              sale.date_sold.day
+            ).getTime() ===
+            new Date(
+              sold_product.date_sold.year,
+              sold_product.date_sold.month,
+              sold_product.date_sold.day
+            ).getTime()
           ) {
             sold_product.sales_per_day +=
               sale.product.quantity * sale.product.product_price;

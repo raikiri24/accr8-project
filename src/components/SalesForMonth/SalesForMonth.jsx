@@ -18,11 +18,10 @@ const monthsArr = [
 ];
 
 function getAllSales() {
-  ECommerceData.sold_products.map((soldproducts) => {
+  const price = ECommerceData.sold_products.map((soldproducts) => {
     soldproducts.sales_for_month = 0;
     soldproducts.sales_for_month =
       soldproducts.product.quantity * soldproducts.product.product_price;
-    console.log(soldproducts);
   });
 }
 
@@ -31,10 +30,20 @@ function getSalesForMonth() {
 
   for (let i = 0; i < 5; i++) {
     ECommerceData.sold_products.map((productsold) => {
-      const month = new Date(productsold.date_sold).getMonth();
+      const month = new Date(
+        productsold.date_sold.year,
+        productsold.date_sold.month,
+        productsold.date_sold.day
+      ).getMonth();
       if (month === new Date().getMonth() - i) {
         productsold.month =
-          monthsArr[new Date(productsold.date_sold).getMonth()];
+          monthsArr[
+            new Date(
+              productsold.date_sold.year,
+              productsold.date_sold.month,
+              productsold.date_sold.day
+            ).getMonth()
+          ];
         productsold.sales_per_month = 0;
         monthsBefore.push(productsold);
       }
@@ -47,7 +56,13 @@ function getSalesForMonth() {
 //get Five Month from this month
 function getFiveMonthsFromNow() {
   const fiveMonthBefore = getSalesForMonth().map((sales_for_month) => {
-    return monthsArr[new Date(sales_for_month.date_sold).getMonth()];
+    return monthsArr[
+      new Date(
+        sales_for_month.date_sold.year,
+        sales_for_month.date_sold.month,
+        sales_for_month.date_sold.day
+      ).getMonth()
+    ];
   });
 
   fiveMonthBefore.reverse((a, b) => {
@@ -66,8 +81,16 @@ function getFiveMonthsSalesFromNow() {
   const fiveMonthSalesBefore = getSalesForMonth().map((sales_for_month) => {
     sales.map((sale) => {
       if (
-        new Date(sales_for_month.date_sold).getMonth() ===
-        new Date(sale.date_sold).getMonth()
+        new Date(
+          sales_for_month.date_sold.year,
+          sales_for_month.date_sold.month,
+          sales_for_month.date_sold.day
+        ).getMonth() ===
+        new Date(
+          sale.date_sold.year,
+          sale.date_sold.month,
+          sale.date_sold.day
+        ).getMonth()
       ) {
         //console.log(sales_for_month.sales_per_month);
         sales_for_month.sales_per_month +=
