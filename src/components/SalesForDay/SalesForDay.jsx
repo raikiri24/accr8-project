@@ -33,7 +33,7 @@ function getSalesForDayObj() {
       date = new Date(new Date().getFullYear(), new Date().getMonth(), day);
     }
   });
-  console.log(dayBefore);
+
   return dayBefore;
 }
 
